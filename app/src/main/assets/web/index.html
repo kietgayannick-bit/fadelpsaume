@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151a1f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<title>Fadelpsaume</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<div id="app">
+  <header class="brand-card">
+    <button class="icon-btn" id="btnSettings" aria-label="Paramètres" data-icon="settings"></button>
+    <div class="brand">
+      <div class="logo" id="logo"></div>
+      <h1>Fadelpsaume</h1>
+      <p class="status-text" id="statusText"><span class="dot"></span><span id="statusLabel">Déconnecté</span></p>
+    </div>
+    <button class="icon-btn accent" id="btnAdd" aria-label="Ajouter" data-icon="plus"></button>
+  </header>
+
+  <main>
+    <section class="power-zone">
+      <button id="powerBtn" class="power idle" aria-label="Connecter">
+        <span class="ring"></span>
+        <span class="ring r2"></span>
+        <span class="core"><span id="powerIcon" data-icon="power"></span></span>
+      </button>
+      <div class="power-label" id="powerLabel">Connecter</div>
+      <p class="error-msg" id="errorMsg" hidden></p>
+    </section>
+
+    <section class="card active-card" id="activeCard">
+      <div class="card-ico" data-icon="server"></div>
+      <div class="grow">
+        <div class="k">Serveur actif</div>
+        <div class="v" id="activeName">Aucun serveur</div>
+        <div class="s" id="activeSub">Ajoute un serveur avec le bouton +</div>
+      </div>
+      <span class="badge" id="activeBadge" hidden></span>
+    </section>
+
+    <section class="grid2">
+      <div class="card stat">
+        <div class="k"><span data-icon="clock"></span>Durée</div>
+        <div class="big mono" id="timer">00:00:00</div>
+      </div>
+      <div class="card stat">
+        <div class="k"><span data-icon="activity"></span>Débit</div>
+        <div class="big mono" id="speed">0 B/s</div>
+      </div>
+      <div class="card stat up">
+        <div class="k"><span data-icon="arrowUp"></span>Envoyé</div>
+        <div class="big mono" id="sentBytes">0 B</div>
+      </div>
+      <div class="card stat down">
+        <div class="k"><span data-icon="arrowDown"></span>Reçu</div>
+        <div class="big mono" id="recvBytes">0 B</div>
+      </div>
+    </section>
+
+    <section class="servers">
+      <div class="sec-head">
+        <h2>Serveurs <small id="serverCount"></small></h2>
+        <button class="chip-btn" id="btnPing"><span data-icon="refresh"></span>Latence</button>
+      </div>
+      <div id="serverList"></div>
+    </section>
+
+    <p class="footnote" id="footnote"></p>
+  </main>
+</div>
+
+<div id="sheets"></div>
+<div id="toasts" aria-live="polite"></div>
+<input type="file" id="fileInput" accept=".fdlp,.rmv,.txt,text/plain,application/octet-stream" hidden>
+
+<script src="/app.js"></script>
+</body>
+</html>
